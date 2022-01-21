@@ -9,7 +9,7 @@ const Home = () => {
 	return (
 		<Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
 			<Stack.Screen name="MainScreen" component={MainScreen} options={{ title: 'Spanilla' }} />
-			<Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} options={{ title: '' }} />
+			<Stack.Screen name="ArticleDetail" component={ArticleDetailScreen} options={{ title: '', headerShown: true }} />
 		</Stack.Navigator>
 	)
 }
