@@ -29,8 +29,6 @@ export const BottomTabs = () => {
 			})
 	}, [])
 
-	console.log('printing initialRoute', initialRoute)
-
 	return (
 		<Tab.Navigator initialRouteName={initialRoute}>
 			<Tab.Screen
