@@ -20,7 +20,7 @@ const AppWrapper = ({ isHeadless }) => {
 	}
 
 	return (
-		<PaperProvider theme={theme}>
+		<PaperProvider theme={theme.defaultTheme}>
 			<NavigationContainer>
 				<App />
 			</NavigationContainer>
