@@ -148,12 +148,23 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file('debug.keystore')
+            storeFile file('beta.keystore')
             storePassword 'android'
-            keyAlias 'androiddebugkey'
+            keyAlias 'androidbetakey'
             keyPassword 'android'
         }
     }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        signed {
+            signingConfig signingConfigs.debug
+        }
+
+        unsigned {}
+    }
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
