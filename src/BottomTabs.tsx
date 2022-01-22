@@ -4,6 +4,7 @@ import { Home, Radio } from './screens/Index'
 import { useNavigation } from '@react-navigation/native'
 import messaging from '@react-native-firebase/messaging'
 import { Tab } from './App'
+import { ActivityIndicator, Colors } from 'react-native-paper'
 
 export const BottomTabs = () => {
 	const navigation = useNavigation()
@@ -30,23 +31,28 @@ export const BottomTabs = () => {
 	}, [])
 
 	return (
-		<Tab.Navigator initialRouteName={initialRoute}>
-			<Tab.Screen
-				name="Home"
-				component={Home}
-				options={{
-					tabBarLabel: 'Home',
-					tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={26} />,
-				}}
-			/>
-			<Tab.Screen
-				name="Notifications"
-				component={Radio}
-				options={{
-					tabBarLabel: 'Updates',
-					tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bell" color={color} size={26} />,
-				}}
-			/>
-		</Tab.Navigator>
+		<>
+			{loading && <ActivityIndicator animating={true} color={Colors.red800} />}
+			{!loading && (
+				<Tab.Navigator initialRouteName={initialRoute}>
+					<Tab.Screen
+						name="Home"
+						component={Home}
+						options={{
+							tabBarLabel: 'Home',
+							tabBarIcon: ({ color }) => <MaterialCommunityIcons name="home" color={color} size={26} />,
+						}}
+					/>
+					<Tab.Screen
+						name="Notifications"
+						component={Radio}
+						options={{
+							tabBarLabel: 'Updates',
+							tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bell" color={color} size={26} />,
+						}}
+					/>
+				</Tab.Navigator>
+			)}
+		</>
 	)
 }
