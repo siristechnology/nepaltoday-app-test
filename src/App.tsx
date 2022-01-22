@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Home, Radio } from './screens/Index'
 import { NavigationContainer } from '@react-navigation/native'
+import NotificationService from './NotificationService'
 
 const Tab = createMaterialBottomTabNavigator()
 
@@ -30,6 +31,11 @@ const BottomTabs = () => {
 }
 
 const App = () => {
+	useEffect(() => {
+		NotificationService.register()
+		console.log('printing NotificationService.register', NotificationService.register)
+	}, [])
+
 	return (
 		<NavigationContainer>
 			<BottomTabs />
