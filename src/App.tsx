@@ -17,7 +17,7 @@ const App = () => {
 		// Assume a message-notification contains a "type" property in the data payload of the screen to open
 		messaging().onNotificationOpenedApp((remoteMessage) => {
 			console.log('Notification caused app to open from background state:', remoteMessage.notification)
-			navigation.navigate('ArticleDetail', remoteMessage.data.type)
+			navigation.navigate('Notifications', remoteMessage.data.type)
 		})
 
 		// Check whether an initial notification is available
