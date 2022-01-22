@@ -15,6 +15,7 @@ const MainScreen = ({ navigation }: props) => {
 			.messaging()
 			.getToken()
 			.then((token) => {
+				console.log('printing token', token)
 				setText(token)
 			})
 		//

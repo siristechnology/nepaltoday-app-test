@@ -10,7 +10,7 @@ const ArticleDetail = ({ navigation }: props) => {
 	return (
 		<IconButton
 			onPress={() => {
-				navigation.navigate('MainScreen', { article: 'art' })
+				navigation.navigate('Tab', { article: 'art' })
 			}}
 			icon="camera"
 		/>
