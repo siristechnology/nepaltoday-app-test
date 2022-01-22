@@ -1,11 +1,16 @@
 module.exports = {
 	root: true,
-	extends: '@react-native-community',
+	env: {
+		es6: true,
+		node: true,
+		jest: true,
+	},
+	extends: ['@react-native-community', 'prettier'],
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint', 'prettier'],
 	overrides: [
 		{
-			files: ['*.ts', '*.tsx'],
+			files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
 			rules: {
 				'prettier/prettier': ['warn'],
 				'@typescript-eslint/no-shadow': ['error'],
