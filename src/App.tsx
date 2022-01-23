@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import messaging from '@react-native-firebase/messaging'
+import auth from '@react-native-firebase/auth'
+import crashlytics from '@react-native-firebase/crashlytics'
 import { BottomTabs } from './BottomTabs'
-import ArticleDetail from './screens/Common/ArticleDetail/Index'
+import ArticleDetail from './screens/ArticleDetail/Index'
 import { ActivityIndicator, Colors } from 'react-native-paper'
 
 const Stack = createNativeStackNavigator()
@@ -31,6 +33,8 @@ const App = () => {
 				}
 				setLoading(false)
 			})
+
+		signInAnonymously()
 	}, [])
 
 	return (
@@ -44,6 +48,14 @@ const App = () => {
 			)}
 		</>
 	)
+}
+
+const signInAnonymously = () => {
+	return auth()
+		.signInAnonymously()
+		.catch((error) => {
+			crashlytics().recordError(error)
+		})
 }
 
 export default App
