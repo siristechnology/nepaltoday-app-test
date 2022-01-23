@@ -13,7 +13,7 @@ const ArticleWeb = (props) => {
 		})
 	}, [article.source.name, navigation])
 
-	return <WebView renderLoading={() => <ActivityIndicator style={tw`flex-1 items-center`} />} startInLoadingState source={{ uri: article.url }} />
+	return <WebView renderLoading={() => <ActivityIndicator style={tw`flex-1 items-center`} />} startInLoadingState source={{ uri: article.link }} />
 }
 
 export default ArticleWeb

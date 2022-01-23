@@ -7,6 +7,7 @@ import crashlytics from '@react-native-firebase/crashlytics'
 import { BottomTabs } from './BottomTabs'
 import ArticleDetail from './screens/ArticleDetail/Index'
 import { ActivityIndicator, Colors } from 'react-native-paper'
+import ArticleWeb from './screens/ArticleDetail/ArticleWeb'
 
 const Stack = createNativeStackNavigator()
 
@@ -44,6 +45,7 @@ const App = () => {
 				<Stack.Navigator initialRouteName={initialRoute} screenOptions={{ headerShown: false }}>
 					<Stack.Screen name="Tab" component={BottomTabs} />
 					<Stack.Screen name="ArticleDetail" component={ArticleDetail} options={{ title: '', headerShown: true }} />
+					<Stack.Screen name="ArticleWeb" component={ArticleWeb} options={{ title: '', headerShown: true }} />
 				</Stack.Navigator>
 			)}
 		</>
