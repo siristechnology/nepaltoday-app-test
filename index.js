@@ -1,6 +1,7 @@
 import React from 'react'
 import { AppRegistry } from 'react-native'
 import messaging from '@react-native-firebase/messaging'
+// import { ApolloProvider } from '@apollo/client'
 import App from './src/App'
 import { name as appName } from './app.json'
 import { Provider as PaperProvider } from 'react-native-paper'
@@ -22,7 +23,9 @@ const AppWrapper = ({ isHeadless }) => {
 	return (
 		<PaperProvider theme={theme.defaultTheme}>
 			<NavigationContainer>
+				{/* <ApolloProvider client={graphqlClient}> */}
 				<App />
+				{/* </ApolloProvider> */}
 			</NavigationContainer>
 		</PaperProvider>
 	)
