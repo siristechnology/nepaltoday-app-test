@@ -4,7 +4,7 @@ import { Avatar, Button, Card, Paragraph } from 'react-native-paper'
 import { useTheme } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import tw from 'tailwind-react-native-classnames'
-import { getRelativeTime } from '../Home/ArticleListItem'
+import { getRelativeTime } from '../Common/ArticleListItem'
 
 const ArticleDetail = (props) => {
 	const { navigation } = props

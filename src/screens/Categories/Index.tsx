@@ -1,15 +1,30 @@
 import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import MainScreen from './MainScreen'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { useQuery } from '@apollo/client'
+import ArticleList from './ArticleList'
+import { GET_CATEGORIES_QUERY } from './GET_CATEGORIES_QUERY'
 
-const Stack = createNativeStackNavigator()
+const Tab = createMaterialTopTabNavigator()
 
-const Home = () => {
+const categoryTabs = ({ navigation }) => {
+	const { loading, error, refetch, data } = useQuery(GET_CATEGORIES_QUERY)
+
+	const articles = data?.getArticles
+
+	const tabNames = ['news', 'entertainment', 'sports', 'cartoon', 'business', 'social', 'health', 'technology', 'share', 'agriculture']
+
 	return (
-		<Stack.Navigator initialRouteName="Main" screenOptions={{ headerShown: false }}>
-			<Stack.Screen name="MainScreen" component={MainScreen} />
-		</Stack.Navigator>
+		<Tab.Navigator>
+			{tabNames.map((tabname, index) => {
+				const categoryArricles = articles?.filter((a) => a.category === tabname)
+				return (
+					<Tab.Screen name={tabname} options={{ tabBarScrollEnabled: true, tabBarBounces: true }} key={index}>
+						{() => <ArticleList articles={categoryArricles} refetch={refetch} navigation={navigation} />}
+					</Tab.Screen>
+				)
+			})}
+		</Tab.Navigator>
 	)
 }
 
-export default Home
+export default categoryTabs

@@ -2,7 +2,7 @@ import { useLazyQuery, useQuery } from '@apollo/client'
 import { firebase } from '@react-native-firebase/messaging'
 import React, { useCallback, useEffect, useState } from 'react'
 import { FlatList } from 'react-native'
-import ArticleListItem from './ArticleListItem'
+import ArticleListItem from '../Common/ArticleListItem'
 import { GET_ARTICLES_QUERY } from './GET_ARTICLES_QUERY'
 import ShimmerCard from './ShimmerCard'
 

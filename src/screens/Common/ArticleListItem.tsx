@@ -1,5 +1,5 @@
-import moment from 'moment'
 import React from 'react'
+import moment from 'moment'
 import { View } from 'react-native'
 import { TouchableRipple, Avatar, Card, Paragraph } from 'react-native-paper'
 import tw from 'tailwind-react-native-classnames'
